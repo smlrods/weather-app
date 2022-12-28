@@ -8,3 +8,24 @@ async function getWeatherData(location) {
     return data.json();
 }
 
+function extractData(data) {
+  let extractedData = {};
+  extractedData.temp = {};
+  data.then(data => {
+    extractedData.temp.kelvin = data.main.temp;
+    extractedData.name = data.name;
+    extractedData.temp.celsius = kelvinToCelsius(extractedData.temp.kelvin);
+    extractedData.temp.Fahrenheit = kelvinToFahrenheit(extractedData.temp.kelvin);
+    console.log(extractedData);
+  })
+  return extractedData;
+}
+
+function kelvinToCelsius(kelvin) {
+  return (kelvin - 273.15); 
+}
+
+function kelvinToFahrenheit(kelvin) {
+  return (kelvin - 273.15)*(9/5) + 32; 
+}
+
