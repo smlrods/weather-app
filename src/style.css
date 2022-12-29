@@ -76,6 +76,11 @@ input[type='text'] {
   animation-fill-mode: forwards;
 }
 
+#loading {
+  width: 100px;
+  height: auto;
+}
+
 @keyframes weathAnimation {
   from {opacity: 0; bottom: -100%;}
   to {opacity: 1; bottom: 0;}
