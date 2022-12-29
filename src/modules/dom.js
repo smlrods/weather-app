@@ -3,6 +3,7 @@ function showElementDOM(title, temp, weather, code) {
     const resultField = document.getElementById('result');
     resultField.textContent = '';
     const weatherField = document.createElement('p');
+    weatherField.id = 'weather';
     const cityTitle = document.createElement('h2');
 
     cityTitle.textContent = title;
