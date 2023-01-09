@@ -10,23 +10,21 @@ document.querySelector('button').addEventListener('click', () => {
   img.id = 'loading';
   document.getElementById('result').append(img);
 
-  weather.get(input.value).then(function (result) {
+  weather.get(input.value).then((result) => {
     setTimeout(() => {
       img.remove();
-        // console.log(result.weather[0])
-      if(result.cod == '404') { // Check if the city was not found
+      // console.log(result.weather[0])
+      if (result.cod === '404') { // Check if the city was not found
         handlerDOM.showError(result);
       } else {
         handlerDOM.showData(weather.extract(result));
       }
-      
     }, 1000);
   });
   input.value = '';
-
 });
 
 // Show a default location every  time that page is loaded
 addEventListener('load', () => {
-  weather.get('London').then(result => handlerDOM.showData(weather.extract(result)));
-})
+  weather.get('London').then((result) => handlerDOM.showData(weather.extract(result)));
+});
